@@ -9,8 +9,8 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
 
     # View URLs
-    url(r'^fobi/', include('fobi.urls.view')),
+    #url(r'^fobi/', include('fobi.urls.view')),
 
     # Edit URLs
-    url(r'^fobi/', include('fobi.urls.edit')),
+    #url(r'^fobi/', include('fobi.urls.edit')),
 )
