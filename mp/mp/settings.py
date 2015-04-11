@@ -9,6 +9,7 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 """
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+import glob
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
@@ -36,6 +37,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'inscripcion',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -58,17 +60,22 @@ WSGI_APPLICATION = 'mp.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'mp',
+        'USER': 'mp',
+        'PASSWORD': 'MP2015!',
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
+
     }
 }
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'es-PY'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Asuncion'
 
 USE_I18N = True
 
@@ -81,3 +88,33 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATIC_FILES = (
+    os.path.join(BASE_DIR, 'static'),
+)
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
+
+TEMPLATE_LOADERS = ('django.template.loaders.filesystem.Loader',
+                    'django.template.loaders.app_directories.Loader')
+
+
+#Configuracion del email
+
+
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'mail.movimientoperegrino.org'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'retiros-noreply@movimientoperegrino.org'
+EMAIL_HOST_PASSWORD = 'macabeos1974!'
+DEFAULT_FROM_EMAIL = 'retiros-noreply@movimientoperegrino.org'
+DEFAULT_TO_EMAIL = 'retiros-noreply@movimientoperegrino.org'
+
+# Load configuration files.
+# https://code.djangoproject.com/wiki/SplitSettings#UsingalistofconffilesTransifex
+conffiles = glob.glob(os.path.join(os.path.dirname(__file__), '../settings_conf', '*.conf'))
+conffiles.sort()
+for f in conffiles:
+    execfile(os.path.abspath(f))

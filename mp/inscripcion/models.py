@@ -1,8 +1,16 @@
+# -*- coding: utf-8 -*-
+
 from django.db import models
 from django.contrib.auth.models import User
 
 # Create your models here.
 
+class Lugar(models.Model):
+    nombre = models.CharField(max_length=100, verbose_name="Nombre")
+    direccion = models.TextField(verbose_name="Dirección")
+    descripcion = models.TextField(verbose_name="Descripción")
+    latitud = models.FloatField()
+    longitud = models.FloatField()
 
 class Actividad(models.Model):
     lugar = models.ForeignKey(Lugar)
@@ -11,8 +19,8 @@ class Actividad(models.Model):
     requisitos = models.TextField()
     fecha_inicio = models.DateTimeField(verbose_name="Fecha inicio")
     fecha_fin = models.DateTimeField(verbose_name="Fecha fin")
-    fecha_activacion = models.DateTimeField(verbose_name="Fecha activación")
-    fecha_creacion = models.DateTimeField(verbose_name="Fecha creación", auto_now_add=True)
+    fecha_activacion = models.DateTimeField(verbose_name="Fecha activacion")
+    fecha_creacion = models.DateTimeField(verbose_name="Fecha creacion", auto_now_add=True)
     cantidad_titulares = models.PositiveIntegerField(verbose_name="Cantidad de titulares")
     cantidad_suplentes = models.PositiveIntegerField(verbose_name="Cantidad de suplentes")
     ACTIVO = "A"
@@ -32,7 +40,7 @@ class Inscripcion(models.Model):
     nombre = models.CharField(max_length=100)
     apellido = models.CharField(max_length=100)
     fecha_nacimiento = models.DateField(verbose_name="Fecha de nacimiento")
-    telefono = models.CharField(max_length=50, "Telefono")
+    telefono = models.CharField(max_length=50, verbose_name="Teléfono")
     mail = models.EmailField()
     PENDIENTE = "P"
     CONFIRMADO = "C"
@@ -46,7 +54,7 @@ class Inscripcion(models.Model):
     )
     estado = models.CharField(max_length=1, choices=ESTADO_INSCRIPCION_OPCIONES)
     posicion = models.PositiveIntegerField()
-    observacion = models.TextField(blank=True, verbose_name="Observacion")
+    observacion = models.TextField(blank=True, verbose_name="Observación")
     participo = models.BooleanField()
     saldo = models.IntegerField(default=0)
 
@@ -61,12 +69,7 @@ class Pago(models.Model):
     fecha = models.DateField()
 
 
-class Lugar(models.Model):
-    nombre = models.CharField(max_length=100, verbose_name="Nombre")
-    direccion = models.TextField(verbose_name="Dirección")
-    descripcion = models.TextField(verbose_name="Descripción")
-    latitud = models.DecimalField()
-    longitud = models.DecimalField()
+
 
 
 
