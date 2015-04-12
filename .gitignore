@@ -54,7 +54,7 @@ docs/_build/
 target/
 
 #Settings directory
-settings_conf/
+settings_conf/*.conf
 
 #Pycharm ideas files.
 .idea/

@@ -1,0 +1,6 @@
+En este directorio deben ir todos los archivos *.conf que se necesitan en el sistema.
+
+Los archivos *.conf son aquellos que contienen información de configuración particular del ambiente en el cual se
+esta corriendo el sistema.
+
+Los archivos bases de configuración se encuentran en: settings_conf_base
