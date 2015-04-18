@@ -1,7 +1,8 @@
 from django.conf.urls import url
-from mp.apps import inscripcion
+
 
 urlpatterns = [
 
-    url(r'^$', 'mp.apps.inscripcion.views.inicio', name='inicio')
+    url(r'^$', 'mp.apps.inscripcion.views.inicio_vista', name='inicio'),
+    url(r'^usuario$', 'mp.apps.inscripcion.views.usuario_inicio_vista', name='usuario inicio')
 ]

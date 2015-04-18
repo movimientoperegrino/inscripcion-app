@@ -6,5 +6,11 @@
 <body>
 
 <h1>SISTEMA DE INSCRIPCIONES 2</h1>
+
+{% for actividad in actividades_lista %}
+
+    {{ actividad.descripcion }}<br />
+
+{% endfor %}
 </body>
 </html>

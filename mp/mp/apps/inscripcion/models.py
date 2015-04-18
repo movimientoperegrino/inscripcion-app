@@ -12,6 +12,10 @@ class Lugar(models.Model):
     latitud = models.FloatField()
     longitud = models.FloatField()
 
+    def __str__(self):
+        return self.nombre
+
+
 class Actividad(models.Model):
     lugar = models.ForeignKey(Lugar)
     descripcion = models.TextField(verbose_name="Descripción")
@@ -33,6 +37,9 @@ class Actividad(models.Model):
     )
     estado = models.CharField(max_length=1, choices=ESTADO_ACTIVIDAD_OPCIONES)
     responsable = models.ForeignKey(User)
+
+    def __str__(self):
+        return self.descripcion
 
 
 class Inscripcion(models.Model):
