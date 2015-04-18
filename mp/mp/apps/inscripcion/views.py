@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.http.response import HttpResponseServerError
 from django.shortcuts import render, render_to_response
 from django.template import RequestContext, loader
-from mp.apps.inscripcion import services
+from mp.apps.inscripcion import services, queries
 
 from mp.apps.inscripcion.models import Actividad
 
@@ -17,7 +17,7 @@ def inicio_vista(request):
     # lista_actividades = lista_actividades.exclude(fechaFin__lte=fechaFin).filter(fechaActivacion__lte=fechaActivacion)
 
 
-    actividades = services.obtener_todas_actividades_por_estados(["activo", "inactivo"])
+    actividades = queries.obtener_todas_actividades_por_estados(["activo", "inactivo"])
 
     template_path = 'inscripcion/inicio.html'
     context = {'actividades_lista': actividades}

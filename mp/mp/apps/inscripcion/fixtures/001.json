@@ -1,0 +1,927 @@
+[
+    {
+        "fields": {
+            "model": "logentry",
+            "app_label": "admin"
+        },
+        "model": "contenttypes.contenttype",
+        "pk": 1
+    },
+    {
+        "fields": {
+            "model": "permission",
+            "app_label": "auth"
+        },
+        "model": "contenttypes.contenttype",
+        "pk": 2
+    },
+    {
+        "fields": {
+            "model": "group",
+            "app_label": "auth"
+        },
+        "model": "contenttypes.contenttype",
+        "pk": 3
+    },
+    {
+        "fields": {
+            "model": "user",
+            "app_label": "auth"
+        },
+        "model": "contenttypes.contenttype",
+        "pk": 4
+    },
+    {
+        "fields": {
+            "model": "contenttype",
+            "app_label": "contenttypes"
+        },
+        "model": "contenttypes.contenttype",
+        "pk": 5
+    },
+    {
+        "fields": {
+            "model": "session",
+            "app_label": "sessions"
+        },
+        "model": "contenttypes.contenttype",
+        "pk": 6
+    },
+    {
+        "fields": {
+            "model": "lugar",
+            "app_label": "inscripcion"
+        },
+        "model": "contenttypes.contenttype",
+        "pk": 7
+    },
+    {
+        "fields": {
+            "model": "actividadestado",
+            "app_label": "inscripcion"
+        },
+        "model": "contenttypes.contenttype",
+        "pk": 8
+    },
+    {
+        "fields": {
+            "model": "actividad",
+            "app_label": "inscripcion"
+        },
+        "model": "contenttypes.contenttype",
+        "pk": 9
+    },
+    {
+        "fields": {
+            "model": "inscripcionestado",
+            "app_label": "inscripcion"
+        },
+        "model": "contenttypes.contenttype",
+        "pk": 10
+    },
+    {
+        "fields": {
+            "model": "inscripcion",
+            "app_label": "inscripcion"
+        },
+        "model": "contenttypes.contenttype",
+        "pk": 11
+    },
+    {
+        "fields": {
+            "model": "tipopago",
+            "app_label": "inscripcion"
+        },
+        "model": "contenttypes.contenttype",
+        "pk": 12
+    },
+    {
+        "fields": {
+            "model": "pago",
+            "app_label": "inscripcion"
+        },
+        "model": "contenttypes.contenttype",
+        "pk": 13
+    },
+    {
+        "fields": {
+            "model": "inscripcionestadoflujo",
+            "app_label": "inscripcion"
+        },
+        "model": "contenttypes.contenttype",
+        "pk": 14
+    },
+    {
+        "fields": {
+            "expire_date": "2015-05-02T16:33:48.372Z",
+            "session_data": "OThmMmVhZTUzMTdhZmJjNDdjYWZiMzA2ODJjZDRlOWE5NjU5YzVmMjp7Il9hdXRoX3VzZXJfaGFzaCI6ImU0NmM3YjUyMTgyZmQ5MDIyMDIxMmNmNzRiN2VjOTU2YjEwM2E4MTciLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0="
+        },
+        "model": "sessions.session",
+        "pk": "fyvii1m53rlnnu74lqae7btbqmpzww42"
+    },
+    {
+        "fields": {
+            "descripcion": "Es la casa de las Hermanas Azules.",
+            "nombre": "Caacupemi",
+            "latitud": -1.0,
+            "longitud": -2.0,
+            "direccion": "En caacupemi."
+        },
+        "model": "inscripcion.lugar",
+        "pk": 1
+    },
+    {
+        "fields": {
+            "descripcion": "Casa de cursillo de Cristiandad.",
+            "nombre": "Casa de retiros \"De Colores\". San Clemente",
+            "latitud": -1.0,
+            "longitud": 1.0,
+            "direccion": "En remanso."
+        },
+        "model": "inscripcion.lugar",
+        "pk": 2
+    },
+    {
+        "fields": {
+            "descripcion": "La actividad se encuentra actualmente activa.",
+            "nombre": "Activo"
+        },
+        "model": "inscripcion.actividadestado",
+        "pk": 1
+    },
+    {
+        "fields": {
+            "descripcion": "La actividad se encuentra activa pero ya se cumplieron con la cantidad de inscriptos.",
+            "nombre": "Llena"
+        },
+        "model": "inscripcion.actividadestado",
+        "pk": 2
+    },
+    {
+        "fields": {
+            "descripcion": "La actividad se encuentra inactiva. Es un estado previo a que este Activa.",
+            "nombre": "Inactiva"
+        },
+        "model": "inscripcion.actividadestado",
+        "pk": 3
+    },
+    {
+        "fields": {
+            "descripcion": "La actividad ya finalizo.",
+            "nombre": "Finalizada"
+        },
+        "model": "inscripcion.actividadestado",
+        "pk": 4
+    },
+    {
+        "fields": {
+            "descripcion": "Pendiente de confirmaci\u00f3n.",
+            "nombre": "Pendiente"
+        },
+        "model": "inscripcion.inscripcionestado",
+        "pk": 1
+    },
+    {
+        "fields": {
+            "descripcion": "Inscripci\u00f3n confirmada.",
+            "nombre": "Confirmada"
+        },
+        "model": "inscripcion.inscripcionestado",
+        "pk": 2
+    },
+    {
+        "fields": {
+            "descripcion": "Inscripci\u00f3n con el paso 1 realizado.",
+            "nombre": "Incompleta"
+        },
+        "model": "inscripcion.inscripcionestado",
+        "pk": 3
+    },
+    {
+        "fields": {
+            "descripcion": "Inscripci\u00f3n cancelada o dada de baja.",
+            "nombre": "Cancelada"
+        },
+        "model": "inscripcion.inscripcionestado",
+        "pk": 4
+    },
+    {
+        "fields": {
+            "descripcion": "Se completo el paso 1 y el paso 2",
+            "estado_inicio": 3,
+            "es_raiz": true,
+            "estado_final": 1
+        },
+        "model": "inscripcion.inscripcionestadoflujo",
+        "pk": 1
+    },
+    {
+        "fields": {
+            "descripcion": "La inscripci\u00f3n fue confirmada y la persona ya pude participar de la actividad.",
+            "estado_inicio": 1,
+            "es_raiz": false,
+            "estado_final": 2
+        },
+        "model": "inscripcion.inscripcionestadoflujo",
+        "pk": 2
+    },
+    {
+        "fields": {
+            "descripcion": "La inscripci\u00f3n ha sido cancelada antes de completar el paso 2.",
+            "estado_inicio": 3,
+            "es_raiz": false,
+            "estado_final": 4
+        },
+        "model": "inscripcion.inscripcionestadoflujo",
+        "pk": 3
+    },
+    {
+        "fields": {
+            "descripcion": "La inscripci\u00f3n no se ha podido confirmar y ha sido cancelada.",
+            "estado_inicio": 1,
+            "es_raiz": false,
+            "estado_final": 4
+        },
+        "model": "inscripcion.inscripcionestadoflujo",
+        "pk": 4
+    },
+    {
+        "fields": {
+            "descripcion": "La inscripci\u00f3n fue confirmada, pero tuvo que cancelar por motivos varios.",
+            "estado_inicio": 2,
+            "es_raiz": false,
+            "estado_final": 4
+        },
+        "model": "inscripcion.inscripcionestadoflujo",
+        "pk": 5
+    },
+    {
+        "fields": {
+            "codename": "add_logentry",
+            "name": "Can add log entry",
+            "content_type": 1
+        },
+        "model": "auth.permission",
+        "pk": 1
+    },
+    {
+        "fields": {
+            "codename": "change_logentry",
+            "name": "Can change log entry",
+            "content_type": 1
+        },
+        "model": "auth.permission",
+        "pk": 2
+    },
+    {
+        "fields": {
+            "codename": "delete_logentry",
+            "name": "Can delete log entry",
+            "content_type": 1
+        },
+        "model": "auth.permission",
+        "pk": 3
+    },
+    {
+        "fields": {
+            "codename": "add_permission",
+            "name": "Can add permission",
+            "content_type": 2
+        },
+        "model": "auth.permission",
+        "pk": 4
+    },
+    {
+        "fields": {
+            "codename": "change_permission",
+            "name": "Can change permission",
+            "content_type": 2
+        },
+        "model": "auth.permission",
+        "pk": 5
+    },
+    {
+        "fields": {
+            "codename": "delete_permission",
+            "name": "Can delete permission",
+            "content_type": 2
+        },
+        "model": "auth.permission",
+        "pk": 6
+    },
+    {
+        "fields": {
+            "codename": "add_group",
+            "name": "Can add group",
+            "content_type": 3
+        },
+        "model": "auth.permission",
+        "pk": 7
+    },
+    {
+        "fields": {
+            "codename": "change_group",
+            "name": "Can change group",
+            "content_type": 3
+        },
+        "model": "auth.permission",
+        "pk": 8
+    },
+    {
+        "fields": {
+            "codename": "delete_group",
+            "name": "Can delete group",
+            "content_type": 3
+        },
+        "model": "auth.permission",
+        "pk": 9
+    },
+    {
+        "fields": {
+            "codename": "add_user",
+            "name": "Can add user",
+            "content_type": 4
+        },
+        "model": "auth.permission",
+        "pk": 10
+    },
+    {
+        "fields": {
+            "codename": "change_user",
+            "name": "Can change user",
+            "content_type": 4
+        },
+        "model": "auth.permission",
+        "pk": 11
+    },
+    {
+        "fields": {
+            "codename": "delete_user",
+            "name": "Can delete user",
+            "content_type": 4
+        },
+        "model": "auth.permission",
+        "pk": 12
+    },
+    {
+        "fields": {
+            "codename": "add_contenttype",
+            "name": "Can add content type",
+            "content_type": 5
+        },
+        "model": "auth.permission",
+        "pk": 13
+    },
+    {
+        "fields": {
+            "codename": "change_contenttype",
+            "name": "Can change content type",
+            "content_type": 5
+        },
+        "model": "auth.permission",
+        "pk": 14
+    },
+    {
+        "fields": {
+            "codename": "delete_contenttype",
+            "name": "Can delete content type",
+            "content_type": 5
+        },
+        "model": "auth.permission",
+        "pk": 15
+    },
+    {
+        "fields": {
+            "codename": "add_session",
+            "name": "Can add session",
+            "content_type": 6
+        },
+        "model": "auth.permission",
+        "pk": 16
+    },
+    {
+        "fields": {
+            "codename": "change_session",
+            "name": "Can change session",
+            "content_type": 6
+        },
+        "model": "auth.permission",
+        "pk": 17
+    },
+    {
+        "fields": {
+            "codename": "delete_session",
+            "name": "Can delete session",
+            "content_type": 6
+        },
+        "model": "auth.permission",
+        "pk": 18
+    },
+    {
+        "fields": {
+            "codename": "add_lugar",
+            "name": "Can add lugar",
+            "content_type": 7
+        },
+        "model": "auth.permission",
+        "pk": 19
+    },
+    {
+        "fields": {
+            "codename": "change_lugar",
+            "name": "Can change lugar",
+            "content_type": 7
+        },
+        "model": "auth.permission",
+        "pk": 20
+    },
+    {
+        "fields": {
+            "codename": "delete_lugar",
+            "name": "Can delete lugar",
+            "content_type": 7
+        },
+        "model": "auth.permission",
+        "pk": 21
+    },
+    {
+        "fields": {
+            "codename": "add_actividadestado",
+            "name": "Can add actividad estado",
+            "content_type": 8
+        },
+        "model": "auth.permission",
+        "pk": 22
+    },
+    {
+        "fields": {
+            "codename": "change_actividadestado",
+            "name": "Can change actividad estado",
+            "content_type": 8
+        },
+        "model": "auth.permission",
+        "pk": 23
+    },
+    {
+        "fields": {
+            "codename": "delete_actividadestado",
+            "name": "Can delete actividad estado",
+            "content_type": 8
+        },
+        "model": "auth.permission",
+        "pk": 24
+    },
+    {
+        "fields": {
+            "codename": "add_actividad",
+            "name": "Can add actividad",
+            "content_type": 9
+        },
+        "model": "auth.permission",
+        "pk": 25
+    },
+    {
+        "fields": {
+            "codename": "change_actividad",
+            "name": "Can change actividad",
+            "content_type": 9
+        },
+        "model": "auth.permission",
+        "pk": 26
+    },
+    {
+        "fields": {
+            "codename": "delete_actividad",
+            "name": "Can delete actividad",
+            "content_type": 9
+        },
+        "model": "auth.permission",
+        "pk": 27
+    },
+    {
+        "fields": {
+            "codename": "add_inscripcionestado",
+            "name": "Can add inscripcion estado",
+            "content_type": 10
+        },
+        "model": "auth.permission",
+        "pk": 28
+    },
+    {
+        "fields": {
+            "codename": "change_inscripcionestado",
+            "name": "Can change inscripcion estado",
+            "content_type": 10
+        },
+        "model": "auth.permission",
+        "pk": 29
+    },
+    {
+        "fields": {
+            "codename": "delete_inscripcionestado",
+            "name": "Can delete inscripcion estado",
+            "content_type": 10
+        },
+        "model": "auth.permission",
+        "pk": 30
+    },
+    {
+        "fields": {
+            "codename": "add_inscripcion",
+            "name": "Can add inscripcion",
+            "content_type": 11
+        },
+        "model": "auth.permission",
+        "pk": 31
+    },
+    {
+        "fields": {
+            "codename": "change_inscripcion",
+            "name": "Can change inscripcion",
+            "content_type": 11
+        },
+        "model": "auth.permission",
+        "pk": 32
+    },
+    {
+        "fields": {
+            "codename": "delete_inscripcion",
+            "name": "Can delete inscripcion",
+            "content_type": 11
+        },
+        "model": "auth.permission",
+        "pk": 33
+    },
+    {
+        "fields": {
+            "codename": "add_tipopago",
+            "name": "Can add tipo pago",
+            "content_type": 12
+        },
+        "model": "auth.permission",
+        "pk": 34
+    },
+    {
+        "fields": {
+            "codename": "change_tipopago",
+            "name": "Can change tipo pago",
+            "content_type": 12
+        },
+        "model": "auth.permission",
+        "pk": 35
+    },
+    {
+        "fields": {
+            "codename": "delete_tipopago",
+            "name": "Can delete tipo pago",
+            "content_type": 12
+        },
+        "model": "auth.permission",
+        "pk": 36
+    },
+    {
+        "fields": {
+            "codename": "add_pago",
+            "name": "Can add pago",
+            "content_type": 13
+        },
+        "model": "auth.permission",
+        "pk": 37
+    },
+    {
+        "fields": {
+            "codename": "change_pago",
+            "name": "Can change pago",
+            "content_type": 13
+        },
+        "model": "auth.permission",
+        "pk": 38
+    },
+    {
+        "fields": {
+            "codename": "delete_pago",
+            "name": "Can delete pago",
+            "content_type": 13
+        },
+        "model": "auth.permission",
+        "pk": 39
+    },
+    {
+        "fields": {
+            "codename": "add_inscripcionestadoflujo",
+            "name": "Can add inscripcion estado flujo",
+            "content_type": 14
+        },
+        "model": "auth.permission",
+        "pk": 40
+    },
+    {
+        "fields": {
+            "codename": "change_inscripcionestadoflujo",
+            "name": "Can change inscripcion estado flujo",
+            "content_type": 14
+        },
+        "model": "auth.permission",
+        "pk": 41
+    },
+    {
+        "fields": {
+            "codename": "delete_inscripcionestadoflujo",
+            "name": "Can delete inscripcion estado flujo",
+            "content_type": 14
+        },
+        "model": "auth.permission",
+        "pk": 42
+    },
+    {
+        "fields": {
+            "username": "admin",
+            "first_name": "",
+            "last_name": "",
+            "is_active": true,
+            "is_superuser": true,
+            "is_staff": true,
+            "last_login": "2015-04-18T16:33:48.371Z",
+            "groups": [],
+            "user_permissions": [],
+            "password": "pbkdf2_sha256$20000$gU4zTj9ZtA98$k9XPVdko9QQUQRNVIu7cZlhk05aTjMFT9j8s8oyN3zk=",
+            "email": "admin@admin.com",
+            "date_joined": "2015-04-18T16:33:23.888Z"
+        },
+        "model": "auth.user",
+        "pk": 1
+    },
+    {
+        "fields": {
+            "action_flag": 1,
+            "action_time": "2015-04-18T16:34:24.134Z",
+            "object_repr": "ActividadEstado object",
+            "object_id": "1",
+            "change_message": "",
+            "user": 1,
+            "content_type": 8
+        },
+        "model": "admin.logentry",
+        "pk": 1
+    },
+    {
+        "fields": {
+            "action_flag": 1,
+            "action_time": "2015-04-18T16:34:51.118Z",
+            "object_repr": "ActividadEstado object",
+            "object_id": "2",
+            "change_message": "",
+            "user": 1,
+            "content_type": 8
+        },
+        "model": "admin.logentry",
+        "pk": 2
+    },
+    {
+        "fields": {
+            "action_flag": 1,
+            "action_time": "2015-04-18T16:35:27.385Z",
+            "object_repr": "ActividadEstado object",
+            "object_id": "3",
+            "change_message": "",
+            "user": 1,
+            "content_type": 8
+        },
+        "model": "admin.logentry",
+        "pk": 3
+    },
+    {
+        "fields": {
+            "action_flag": 1,
+            "action_time": "2015-04-18T16:35:48.581Z",
+            "object_repr": "ActividadEstado object",
+            "object_id": "4",
+            "change_message": "",
+            "user": 1,
+            "content_type": 8
+        },
+        "model": "admin.logentry",
+        "pk": 4
+    },
+    {
+        "fields": {
+            "action_flag": 1,
+            "action_time": "2015-04-18T16:43:28.643Z",
+            "object_repr": "InscripcionEstado object",
+            "object_id": "1",
+            "change_message": "",
+            "user": 1,
+            "content_type": 10
+        },
+        "model": "admin.logentry",
+        "pk": 5
+    },
+    {
+        "fields": {
+            "action_flag": 2,
+            "action_time": "2015-04-18T16:46:49.518Z",
+            "object_repr": "InscripcionEstado object",
+            "object_id": "1",
+            "change_message": "Modificado/a descripcion.",
+            "user": 1,
+            "content_type": 10
+        },
+        "model": "admin.logentry",
+        "pk": 6
+    },
+    {
+        "fields": {
+            "action_flag": 1,
+            "action_time": "2015-04-18T16:47:06.081Z",
+            "object_repr": "InscripcionEstado object",
+            "object_id": "2",
+            "change_message": "",
+            "user": 1,
+            "content_type": 10
+        },
+        "model": "admin.logentry",
+        "pk": 7
+    },
+    {
+        "fields": {
+            "action_flag": 1,
+            "action_time": "2015-04-18T16:47:45.155Z",
+            "object_repr": "InscripcionEstado object",
+            "object_id": "3",
+            "change_message": "",
+            "user": 1,
+            "content_type": 10
+        },
+        "model": "admin.logentry",
+        "pk": 8
+    },
+    {
+        "fields": {
+            "action_flag": 1,
+            "action_time": "2015-04-18T16:48:02.292Z",
+            "object_repr": "InscripcionEstado object",
+            "object_id": "4",
+            "change_message": "",
+            "user": 1,
+            "content_type": 10
+        },
+        "model": "admin.logentry",
+        "pk": 9
+    },
+    {
+        "fields": {
+            "action_flag": 2,
+            "action_time": "2015-04-18T16:49:37.890Z",
+            "object_repr": "Confirmada",
+            "object_id": "2",
+            "change_message": "Modificado/a nombre.",
+            "user": 1,
+            "content_type": 10
+        },
+        "model": "admin.logentry",
+        "pk": 10
+    },
+    {
+        "fields": {
+            "action_flag": 2,
+            "action_time": "2015-04-18T16:50:03.027Z",
+            "object_repr": "Finalizada",
+            "object_id": "4",
+            "change_message": "Modificado/a nombre.",
+            "user": 1,
+            "content_type": 8
+        },
+        "model": "admin.logentry",
+        "pk": 11
+    },
+    {
+        "fields": {
+            "action_flag": 2,
+            "action_time": "2015-04-18T16:50:10.021Z",
+            "object_repr": "Inactiva",
+            "object_id": "3",
+            "change_message": "Modificado/a nombre.",
+            "user": 1,
+            "content_type": 8
+        },
+        "model": "admin.logentry",
+        "pk": 12
+    },
+    {
+        "fields": {
+            "action_flag": 2,
+            "action_time": "2015-04-18T16:50:16.454Z",
+            "object_repr": "Llena",
+            "object_id": "2",
+            "change_message": "Modificado/a nombre.",
+            "user": 1,
+            "content_type": 8
+        },
+        "model": "admin.logentry",
+        "pk": 13
+    },
+    {
+        "fields": {
+            "action_flag": 2,
+            "action_time": "2015-04-18T16:50:24.874Z",
+            "object_repr": "Activo",
+            "object_id": "1",
+            "change_message": "Modificado/a nombre.",
+            "user": 1,
+            "content_type": 8
+        },
+        "model": "admin.logentry",
+        "pk": 14
+    },
+    {
+        "fields": {
+            "action_flag": 1,
+            "action_time": "2015-04-18T16:51:53.933Z",
+            "object_repr": "InscripcionEstadoFlujo object",
+            "object_id": "1",
+            "change_message": "",
+            "user": 1,
+            "content_type": 14
+        },
+        "model": "admin.logentry",
+        "pk": 15
+    },
+    {
+        "fields": {
+            "action_flag": 1,
+            "action_time": "2015-04-18T16:52:24.981Z",
+            "object_repr": "InscripcionEstadoFlujo object",
+            "object_id": "2",
+            "change_message": "",
+            "user": 1,
+            "content_type": 14
+        },
+        "model": "admin.logentry",
+        "pk": 16
+    },
+    {
+        "fields": {
+            "action_flag": 1,
+            "action_time": "2015-04-18T16:54:49.760Z",
+            "object_repr": "InscripcionEstadoFlujo object",
+            "object_id": "3",
+            "change_message": "",
+            "user": 1,
+            "content_type": 14
+        },
+        "model": "admin.logentry",
+        "pk": 17
+    },
+    {
+        "fields": {
+            "action_flag": 1,
+            "action_time": "2015-04-18T16:58:32.719Z",
+            "object_repr": "InscripcionEstadoFlujo object",
+            "object_id": "4",
+            "change_message": "",
+            "user": 1,
+            "content_type": 14
+        },
+        "model": "admin.logentry",
+        "pk": 18
+    },
+    {
+        "fields": {
+            "action_flag": 1,
+            "action_time": "2015-04-18T17:01:46.548Z",
+            "object_repr": "Confirmada > Cancelada",
+            "object_id": "5",
+            "change_message": "",
+            "user": 1,
+            "content_type": 14
+        },
+        "model": "admin.logentry",
+        "pk": 19
+    },
+    {
+        "fields": {
+            "action_flag": 1,
+            "action_time": "2015-04-18T17:06:37.696Z",
+            "object_repr": "Caacupemi",
+            "object_id": "1",
+            "change_message": "",
+            "user": 1,
+            "content_type": 7
+        },
+        "model": "admin.logentry",
+        "pk": 20
+    },
+    {
+        "fields": {
+            "action_flag": 1,
+            "action_time": "2015-04-18T17:07:02.800Z",
+            "object_repr": "Casa de retiros \"De Colores\". San Clemente",
+            "object_id": "2",
+            "change_message": "",
+            "user": 1,
+            "content_type": 7
+        },
+        "model": "admin.logentry",
+        "pk": 21
+    }
+]

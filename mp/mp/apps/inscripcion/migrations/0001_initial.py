@@ -25,7 +25,14 @@ class Migration(migrations.Migration):
                 ('fecha_creacion', models.DateTimeField(auto_now_add=True, verbose_name=b'Fecha creacion')),
                 ('cantidad_titulares', models.PositiveIntegerField(verbose_name=b'Cantidad de titulares')),
                 ('cantidad_suplentes', models.PositiveIntegerField(verbose_name=b'Cantidad de suplentes')),
-                ('estado', models.CharField(max_length=1, choices=[(b'A', b'Activo'), (b'I', b'Inactivo'), (b'F', b'Finalizado')])),
+            ],
+        ),
+        migrations.CreateModel(
+            name='ActividadEstado',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('nombre', models.CharField(max_length=100)),
+                ('descripcion', models.CharField(max_length=100)),
             ],
         ),
         migrations.CreateModel(
@@ -37,12 +44,29 @@ class Migration(migrations.Migration):
                 ('fecha_nacimiento', models.DateField(verbose_name=b'Fecha de nacimiento')),
                 ('telefono', models.CharField(max_length=50, verbose_name=b'Tel\xc3\xa9fono')),
                 ('mail', models.EmailField(max_length=254)),
-                ('estado', models.CharField(max_length=1, choices=[(b'P', b'Pendiente'), (b'C', b'Confirmado'), (b'I', b'Incompleto'), (b'X', b'Cancelado')])),
                 ('posicion', models.PositiveIntegerField()),
                 ('observacion', models.TextField(verbose_name=b'Observaci\xc3\xb3n', blank=True)),
                 ('participo', models.BooleanField()),
                 ('saldo', models.IntegerField(default=0)),
                 ('actividad', models.ForeignKey(to='inscripcion.Actividad')),
+            ],
+        ),
+        migrations.CreateModel(
+            name='InscripcionEstado',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('nombre', models.CharField(max_length=100)),
+                ('descripcion', models.CharField(max_length=100)),
+            ],
+        ),
+        migrations.CreateModel(
+            name='InscripcionEstadoFlujo',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('descripcion', models.CharField(max_length=100)),
+                ('es_raiz', models.BooleanField()),
+                ('estado_final', models.ForeignKey(related_name='fin', to='inscripcion.InscripcionEstado')),
+                ('estado_inicio', models.ForeignKey(related_name='inicio', to='inscripcion.InscripcionEstado')),
             ],
         ),
         migrations.CreateModel(
@@ -75,6 +99,16 @@ class Migration(migrations.Migration):
             model_name='pago',
             name='tipo',
             field=models.ForeignKey(to='inscripcion.TipoPago'),
+        ),
+        migrations.AddField(
+            model_name='inscripcion',
+            name='estado_inscripcion',
+            field=models.ForeignKey(to='inscripcion.InscripcionEstado'),
+        ),
+        migrations.AddField(
+            model_name='actividad',
+            name='estado_actividad',
+            field=models.ForeignKey(to='inscripcion.ActividadEstado'),
         ),
         migrations.AddField(
             model_name='actividad',

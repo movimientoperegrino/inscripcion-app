@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 
+
 class Lugar(models.Model):
     nombre = models.CharField(max_length=100, verbose_name="Nombre")
     direccion = models.TextField(verbose_name="Dirección")
@@ -15,6 +16,12 @@ class Lugar(models.Model):
     def __str__(self):
         return self.nombre
 
+class ActividadEstado(models.Model):
+    nombre = models.CharField(max_length=100)
+    descripcion = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.nombre
 
 class Actividad(models.Model):
     lugar = models.ForeignKey(Lugar)
@@ -27,20 +34,18 @@ class Actividad(models.Model):
     fecha_creacion = models.DateTimeField(verbose_name="Fecha creacion", auto_now_add=True)
     cantidad_titulares = models.PositiveIntegerField(verbose_name="Cantidad de titulares")
     cantidad_suplentes = models.PositiveIntegerField(verbose_name="Cantidad de suplentes")
-    ACTIVO = "A"
-    INACTIVO = "I"
-    FINALIZADO = "F"
-    ESTADO_ACTIVIDAD_OPCIONES = (
-        (ACTIVO, 'Activo'),
-        (INACTIVO, 'Inactivo'),
-        (FINALIZADO, 'Finalizado')
-    )
-    estado = models.CharField(max_length=1, choices=ESTADO_ACTIVIDAD_OPCIONES)
+    estado_actividad = models.ForeignKey(ActividadEstado)
     responsable = models.ForeignKey(User)
 
     def __str__(self):
         return self.descripcion
 
+class InscripcionEstado(models.Model):
+    nombre = models.CharField(max_length=100)
+    descripcion = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.nombre
 
 class Inscripcion(models.Model):
     actividad = models.ForeignKey(Actividad)
@@ -49,17 +54,7 @@ class Inscripcion(models.Model):
     fecha_nacimiento = models.DateField(verbose_name="Fecha de nacimiento")
     telefono = models.CharField(max_length=50, verbose_name="Teléfono")
     mail = models.EmailField()
-    PENDIENTE = "P"
-    CONFIRMADO = "C"
-    INCOMPLETO = "I"
-    CANCELADO = "X"
-    ESTADO_INSCRIPCION_OPCIONES = (
-        (PENDIENTE, 'Pendiente'),
-        (CONFIRMADO, 'Confirmado'),
-        (INCOMPLETO, 'Incompleto'),
-        (CANCELADO, 'Cancelado')
-    )
-    estado = models.CharField(max_length=1, choices=ESTADO_INSCRIPCION_OPCIONES)
+    estado_inscripcion = models.ForeignKey(InscripcionEstado)
     posicion = models.PositiveIntegerField()
     observacion = models.TextField(blank=True, verbose_name="Observación")
     participo = models.BooleanField()
@@ -76,6 +71,14 @@ class Pago(models.Model):
     fecha = models.DateField()
 
 
+class InscripcionEstadoFlujo(models.Model):
+    estado_inicio = models.ForeignKey(InscripcionEstado, related_name='inicio')
+    estado_final = models.ForeignKey(InscripcionEstado, related_name='fin')
+    descripcion = models.CharField(max_length=100)
+    es_raiz = models.BooleanField()
+
+    def __str__(self):
+        return self.estado_inicio.nombre + ' > ' + self.estado_final.nombre
 
 
 
