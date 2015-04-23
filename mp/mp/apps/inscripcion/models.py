@@ -58,6 +58,12 @@ class Inscripcion(models.Model):
     participo = models.BooleanField()
     saldo = models.IntegerField(default=0)
 
+    def __unicode__(self):
+        return self.nombre
+
+    class Meta:
+        verbose_name_plural = "Actividades"
+
 
 class TipoPago(models.Model):
     nombre = models.CharField(max_length=100)

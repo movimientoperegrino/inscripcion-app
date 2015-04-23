@@ -38,6 +38,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'mp.apps.inscripcion',
+    'bootstrap3'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -54,21 +55,6 @@ ROOT_URLCONF = 'mp.urls'
 
 WSGI_APPLICATION = 'mp.wsgi.application'
 
-
-# Database
-# https://docs.djangoproject.com/en/1.7/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'mp',
-        'USER': 'mp',
-        'PASSWORD': 'MP2015!',
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
-
-    }
-}
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
@@ -101,16 +87,7 @@ TEMPLATE_LOADERS = ('django.template.loaders.filesystem.Loader',
                     'django.template.loaders.app_directories.Loader')
 
 
-#Configuracion del email
 
-
-EMAIL_USE_TLS = True
-EMAIL_HOST = 'mail.movimientoperegrino.org'
-EMAIL_PORT = 587
-EMAIL_HOST_USER = 'retiros-noreply@movimientoperegrino.org'
-EMAIL_HOST_PASSWORD = 'macabeos1974!'
-DEFAULT_FROM_EMAIL = 'retiros-noreply@movimientoperegrino.org'
-DEFAULT_TO_EMAIL = 'retiros-noreply@movimientoperegrino.org'
 
 # Load configuration files.
 # https://code.djangoproject.com/wiki/SplitSettings#UsingalistofconffilesTransifex
