@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% block meta_tags %}
+    {% endblock %}
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Sistema de inscripciones MP">
+    <meta name="author" content="Team de Informática">
+
+    <title>
+        {% block title %}{% endblock %} - Inscripciones MP
+    </title>
+    {% block stylesheets %}
+        <link rel="stylesheet" href="{{ STATIC_URL }}inscripcion/css/bootstrap.min.css" type="text/css"/>
+        <link rel="stylesheet" href="{{ STATIC_URL }}inscripcion/css/modern-business.css" type="text/css"/>
+        <link rel="stylesheet" href="{{ STATIC_URL }}inscripcion/font-awesome/css/font-awesome.min.css"
+              type="text/css"/>
+        <link rel="stylesheet" href="{{ STATIC_URL }}inscripcion/css/jquery-ui.min.css" type="text/css"/>
+        <link rel="stylesheet" href="{{ STATIC_URL }}inscripcion/css/theme.css" type="text/css"/>
+    {% endblock %}
+
+    {% block extra_head %}
+
+    {% endblock %}
+</head>
+<body>
+
+{% block menu %}
+{% endblock %}
+
+{% block header %}
+{% endblock %}
+
+<!-- Page Content -->
+<div class="container">
+    {% block content %}
+    {% endblock %}
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+        <div class="row">
+            <div class="col-lg-12">
+                <p>Copyright &copy; Movimiento Peregrino {% now "Y" %} </p>
+            </div>
+        </div>
+    </footer>
+</div>
+<!-- /.container -->
+
+{% block javascript %}
+    <script src="{{ STATIC_URL }}inscripcion/js/jquery.js" type="text/javascript"></script>
+    <script src="{{ STATIC_URL }}inscripcion/js/jquery-ui.min.js" type="text/javascript"></script>
+    <script src="{{ STATIC_URL }}inscripcion/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="{{ STATIC_URL }}inscripcion/js/jqBootstrapValidation.js" type="text/javascript"></script>
+{% endblock %}
+
+{% block extra_javascript %}
+{% endblock %}
+</body>
+</html>

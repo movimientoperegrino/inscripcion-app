@@ -1,0 +1,37 @@
+{% extends 'inscripcion/base.html' %}
+
+{% block title %} Inscripción a  {{ actividad.descripcion }} {% endblock %}
+
+{% block content %}
+    {% load widget_tweaks %}
+    <div class="alert alert-info">
+        Los campos que poseen (*) son obligatorios<br>
+        Formato de fecha: aaaa-mm-dd
+    </div>
+
+    <form id="formulario_actividad_{{ actividad.id }}" class="form-horizontal" method="post">{% csrf_token %}
+
+        <legend>Inscripcion a {{ actividad.descripcion }}</legend>
+        {% for field in inscripcion_actividad %}
+
+            <div class="control-group {{ field.html_name }} {% if field.errors %} has-error {% endif %}">
+                <label class="control-label">{{ field.label }}{% if field.field.required %} *{% endif %}</label>
+
+                <div class="controls">
+                    {{ field|add_class:"form-control"}}
+                    {% if field.errors %}<span class="help-inline">{{ field.errors.as_text }}</span>{% endif %}
+                </div>
+            </div>
+        {% endfor %}
+
+        <button type="submit" class="btn btn-primary">Confirmar</button>
+
+    </form>
+
+{% endblock %}
+
+{% block extra_javascript %}
+
+     <script src="{{ STATIC_URL }}inscripcion/js/custom/inscripcion.js" type="text/javascript"></script>
+
+{% endblock %}

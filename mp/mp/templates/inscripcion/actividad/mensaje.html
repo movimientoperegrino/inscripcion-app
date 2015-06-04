@@ -1,0 +1,51 @@
+{% extends "inscripcion/base.html" %}
+
+{% block meta_tags %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Sistema de inscripciones MP">
+    <meta name="author" content="Team de Informática">
+{% endblock %}
+
+{% block  title %}
+    Inscripciones | Movimiento Peregrino
+{% endblock %}
+
+{% block  extra_head %}
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+{% endblock %}
+
+{% block content %}
+
+    <!-- Page Heading/Breadcrumbs -->
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">{{ titulo }}
+                <small>Movimiento Pregrino</small>
+            </h1>
+            <ol class="breadcrumb">
+                <li><a href="{% url 'mp.apps.inscripcion.views.inicio_vista'%}">Inicio</a>
+                </li>
+                <li class="active">Mensaje</li>
+            </ol>
+        </div>
+    </div>
+    <!-- /.row -->
+
+    <!-- Marketing Icons Section -->
+    <div class="row">
+        <div class="col-lg-12">
+            {# Zona de mensajes. #}
+            {% if es_exito == True %}
+                <div class="alert alert-success">{{ mensaje }}</div>
+            {% elif es_exito == False %}
+                <div class="alert alert-danger">{{ mensaje }}</div>
+            {% endif %}
+        </div>
+    </div>
+    <!-- /.row -->
+{% endblock %}
