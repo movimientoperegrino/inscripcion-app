@@ -71,8 +71,9 @@ def formulario_actividad_view(request, id_actividad):
                     fecha_nacimiento = data['fecha_nacimiento']
                     telefono = data['telefono']
                     email = data['email']
+                    cedula = data['cedula']
                     inscripcion_guardada = services.guardarInscripcion(id_actividad, nombre, apellido, fecha_nacimiento,
-                                                                       telefono, email)
+                                                                       telefono, email, cedula)
                     services.enviar_mail_inscripcion(inscripcion_guardada)
 
                     mensaje = 'Su solicitud ha sido procesada con exito. En breve recibira un correo de confirmacion,' \

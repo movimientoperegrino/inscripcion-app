@@ -12,7 +12,7 @@ from mp.apps.inscripcion.parameters import *
 __author__ = 'gzacur'
 
 
-def guardarInscripcion(id_actividad, nombre, apellido, fecha_nacimiento, telefono, email):
+def guardarInscripcion(id_actividad, nombre, apellido, fecha_nacimiento, telefono, email, cedula):
     """ Guarda una nueva inscripcion o retorna un error en caso de no pasar las validaciones. """
 
     if es_actividad_llena(id_actividad):
@@ -22,8 +22,10 @@ def guardarInscripcion(id_actividad, nombre, apellido, fecha_nacimiento, telefon
     #     raise InscripcionRepetida('Ya se encuentra inscripto a esta actividad')
 
     actividad = queries.obtener_actividad_por_id(id_actividad)
-    estado = queries.obtener_inscripcion_estado_por_id(
-        queries.obtener_parametro_por_clave(ParametrosInscripcion.INSCRIPCION_ESTADO_INICIAL))
+    id_estado = queries.obtener_parametro_por_clave(ParametrosInscripcion.INSCRIPCION_ESTADO_INICIAL)
+    print id_estado
+    print type(id_estado)
+    estado = queries.obtener_inscripcion_estado_por_id(int(id_estado.valor))
     inscripcion = Inscripcion()
     inscripcion.actividad = actividad
     inscripcion.nombre = nombre
@@ -35,6 +37,7 @@ def guardarInscripcion(id_actividad, nombre, apellido, fecha_nacimiento, telefon
     inscripcion.posicion = 0  #maximo valor para un entero. Valor temporal.
     inscripcion.participo = False
     inscripcion.estado_inscripcion = estado
+    inscripcion.cedula = cedula
     inscripcion.save()
 
     inscripcion.posicion = queries.obtener_posicion_inscripto_por_actividad_y_inscripcion(id_actividad, inscripcion.id)
@@ -121,7 +124,7 @@ def enviar_mail_inscripcion(inscripcion_guardada):
         template = Template(parametro.valor)
 
     html_render = template.render(context)
-    enviar_mail("zakyur@gmail.com", html_render, "Inscripciones 2 - testing")
+    enviar_mail(inscripcion_guardada.mail, html_render, inscripcion_guardada.actividad.nombre)
 
 
 def enviar_mail(destino, cuerpo, asunto):
