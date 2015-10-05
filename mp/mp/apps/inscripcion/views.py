@@ -20,7 +20,7 @@ def inicio_vista(request):
 
     template_path = 'inscripcion/index.html'
     context = {'actividades_lista': actividades}
-    return render_to_response(template_path, context,
+    return render_to_response('inscripcion/index.html', context,
                               context_instance=RequestContext(request))
 
 

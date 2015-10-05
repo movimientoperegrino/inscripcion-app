@@ -38,8 +38,58 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+    'django.contrib.sitemaps',
     'mp.apps.inscripcion',
     'widget_tweaks',
+    'bootstrap3',
+
+     # Core
+    'fobi',
+
+    # Theme
+    'fobi.contrib.themes.bootstrap3',
+
+    # Form field plugins
+    'fobi.contrib.plugins.form_elements.fields.boolean',
+    'fobi.contrib.plugins.form_elements.fields.checkbox_select_multiple',
+    'fobi.contrib.plugins.form_elements.fields.date',
+    'fobi.contrib.plugins.form_elements.fields.date_drop_down',
+    'fobi.contrib.plugins.form_elements.fields.datetime',
+    'fobi.contrib.plugins.form_elements.fields.decimal',
+    'fobi.contrib.plugins.form_elements.fields.email',
+    'fobi.contrib.plugins.form_elements.fields.file',
+    'fobi.contrib.plugins.form_elements.fields.float',
+    'fobi.contrib.plugins.form_elements.fields.hidden',
+    'fobi.contrib.plugins.form_elements.fields.input',
+    'fobi.contrib.plugins.form_elements.fields.integer',
+    'fobi.contrib.plugins.form_elements.fields.ip_address',
+    'fobi.contrib.plugins.form_elements.fields.null_boolean',
+    'fobi.contrib.plugins.form_elements.fields.password',
+    'fobi.contrib.plugins.form_elements.fields.radio',
+    'fobi.contrib.plugins.form_elements.fields.regex',
+    'fobi.contrib.plugins.form_elements.fields.select',
+    'fobi.contrib.plugins.form_elements.fields.select_model_object',
+    'fobi.contrib.plugins.form_elements.fields.select_multiple',
+    'fobi.contrib.plugins.form_elements.fields.select_multiple_model_objects',
+    'fobi.contrib.plugins.form_elements.fields.slug',
+    'fobi.contrib.plugins.form_elements.fields.text',
+    'fobi.contrib.plugins.form_elements.fields.textarea',
+    'fobi.contrib.plugins.form_elements.fields.time',
+    'fobi.contrib.plugins.form_elements.fields.url',
+
+    # Form element plugins
+    'easy_thumbnails', # Required by `content_image` plugin
+    'fobi.contrib.plugins.form_elements.content.content_image',
+    'fobi.contrib.plugins.form_elements.content.content_text',
+    'fobi.contrib.plugins.form_elements.content.content_video',
+
+    # Form handlers
+    'fobi.contrib.plugins.form_handlers.db_store',
+    'fobi.contrib.plugins.form_handlers.http_repost',
+    'fobi.contrib.plugins.form_handlers.mail',
+
+
 )
 
 MIDDLEWARE_CLASSES = (
@@ -101,11 +151,19 @@ TEMPLATES = [
                 'django.template.context_processors.static',
                 'django.template.context_processors.tz',
                 'django.contrib.messages.context_processors.messages',
+                'django.core.context_processors.request',
+                'fobi.context_processors.theme',
+                'fobi.context_processors.dynamic_values',
             ],
         },
     },
 ]
 
+
+# ES NECESARIO ??
+TEMPLATE_DIRS = (
+    "mp/templates/",
+)
 
 # Load configuration files.
 # https://code.djangoproject.com/wiki/SplitSettings#UsingalistofconffilesTransifex
@@ -113,3 +171,11 @@ conffiles = glob.glob(os.path.join(os.path.dirname(__file__), '../settings_conf'
 conffiles.sort()
 for f in conffiles:
     execfile(os.path.abspath(f))
+
+
+
+#Se define el tema del fobi
+FOBI_DEFAULT_THEME = 'bootstrap3'
+
+#para restringir permisos a los campos
+FOBI_RESTRICT_PLUGIN_ACCESS = False

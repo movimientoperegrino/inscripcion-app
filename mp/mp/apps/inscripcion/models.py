@@ -53,7 +53,7 @@ class Inscripcion(models.Model):
     estado_inscripcion = models.ForeignKey(InscripcionEstado)
     posicion = models.PositiveIntegerField()
     observacion = models.TextField(blank=True, verbose_name="Observación")
-    participo = models.BooleanField()
+    participo = models.BooleanField(default=False)
     saldo = models.IntegerField(default=0)
 
 
